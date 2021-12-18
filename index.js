@@ -16,13 +16,24 @@ app.set('views', 'views')
 app.use(express.static('public'))
 
 app.get('/', (req, res) => {
-  res.status(200);
-  res.render('index');
+  res.render('index', {
+    title: 'Main page',
+    isHome: true
+  });
 })
 
-app.get('/about', (req, res) => {
-  res.status(200);
-  res.render('about')
+app.get('/add', (req, res) => {
+  res.render('add', {
+    title: 'Add course',
+    isAdd: true
+  })
+})
+
+app.get('/courses', (req, res) => {
+  res.render('courses', {
+    title: 'Courses',
+    isCourses: true
+  })
 })
 
 const PORT = process.env.PORT || 3000;
